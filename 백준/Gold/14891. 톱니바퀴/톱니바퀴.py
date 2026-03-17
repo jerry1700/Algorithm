@@ -11,15 +11,17 @@ for _ in range(K):
     deq = deque([(start, d)])
     while deq:
         num, dir = deq.popleft()
-        visited[num] = True
         dic[num] = dir
+        visited[num] = True
 
         if num - 1 >= 0 and not visited[num - 1] and wheels[num - 1][2] != wheels[num][6]:
             deq.append((num - 1, -dir))
         if num + 1 < 4 and not visited[num + 1] and wheels[num][2] != wheels[num + 1][6]:
             deq.append((num + 1, -dir))
 
-        wheels[num].rotate(dir)
+    for i in range(4):
+        if dic[i] != 0:
+            wheels[i].rotate(dic[i])
 
 answer = 0
 for i in range(4):
