@@ -1,9 +1,9 @@
 import sys
-input = sys.stdin.readline
+
+def input():
+    return sys.stdin.readline().rstrip()
 
 N = int(input())
-num = [int(input()) for i in range(N)]
-num.sort()
+nums = [int(input()) for _ in range(N)]
 
-for i in num:
-    print(i)
+print(*sorted(nums), sep = "\n")
