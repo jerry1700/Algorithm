@@ -1,7 +1,7 @@
 N = int(input())
+members = [list(input().split()) for _ in range(N)]
 
-age_name = [input().split() for i in range(N)]
-sort_age_name = sorted(age_name, key = lambda x: int(x[0]))
+members.sort(key = lambda x: int(x[0]))
 
-for age, name in sort_age_name:
+for age, name in members:
     print(age, name)
