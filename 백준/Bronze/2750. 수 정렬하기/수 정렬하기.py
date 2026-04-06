@@ -1,6 +1,4 @@
 N = int(input())
 nums = [int(input()) for _ in range(N)]
 
-nums.sort()
-
-print(*nums, sep = "\n")
+print(*sorted(nums), sep = "\n")
