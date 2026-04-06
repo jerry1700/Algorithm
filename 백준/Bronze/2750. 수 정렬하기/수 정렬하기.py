@@ -1,9 +1,6 @@
 N = int(input())
-nums = []
-for _ in range(N):
-    nums.append(int(input()))
+nums = [int(input()) for _ in range(N)]
 
 nums.sort()
 
-for i in nums:
-    print(i)
+print(*nums, sep = "\n")
