@@ -18,8 +18,7 @@ for tc in range(1, T + 1):
     for _ in range(Q):
         C, ops = list(input().split())
 
-        x, y = tx, ty
-        d = 0
+        x, y, d = tx, ty, 0
         dx, dy = dxy[d]
 
         for op in ops:
@@ -34,9 +33,7 @@ for tc in range(1, T + 1):
                 d = (d + 1) % 4
                 dx, dy = dxy[d]
 
-        if board[x][y] == "Y":
-            result.append(1)
-        else:
-            result.append(0)
+        answer = 1 if board[x][y] == "Y" else 0
+        result.append(answer)
 
     print(f"#{tc}", *result)
