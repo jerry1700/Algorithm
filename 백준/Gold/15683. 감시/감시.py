@@ -1,44 +1,65 @@
-from itertools import product
-
 N, M = map(int, input().split())
-office = [list(map(int, input().split())) for _ in range(N)]
+temp = [list(map(int, input().split())) for _ in range(N)]
 
-dxy = [(1, 0), (0, 1), (-1, 0), (0, -1)]
-step = {
-    1: [[0], [1], [2], [3]],
-    2: [[0, 2], [1, 3]],
-    3: [[0, 1], [1, 2], [2, 3], [3, 0]],
-    4: [[0, 1, 2], [0, 1, 3], [0, 2, 3], [1, 2, 3]],
-    5: [[0, 1, 2, 3]],
-}
+dirs = [
+    [],
+    [[(1, 0)], [(0, 1)], [(-1, 0)], [(0, -1)]],
+    [[(1, 0), (-1, 0)], [(0, 1), (0, -1)]],
+    [[(1, 0), (0, 1)], [(0, 1), (-1, 0)], [(-1, 0), (0, -1)], [(0, -1), (1, 0)]],
+    [[(1, 0), (0, 1), (-1, 0)], [(0, 1), (-1, 0), (0, -1)], [(-1, 0), (0, -1), (1, 0)], [(0, -1), (1, 0), (0, 1)]],
+    [[(1, 0), (0, 1), (-1, 0), (0, -1)]]
+]
+dir = [0, 4, 2, 4, 4, 1]
 
-cctv_count = 0
-cctv_list = []
+cctv_position = []
+cctv_num = []
 for i in range(N):
     for j in range(M):
-        if 1 <= office[i][j] <= 5:
-            cctv_list.append([office[i][j], i, j])
-            cctv_count += 1
+        if 1 <= temp[i][j] <= 5:
+            cctv_position.append((i, j))
+            cctv_num.append(temp[i][j])
 
-pick = [step[t] for t, x, y in cctv_list]
-blind_spot = N * M
-for case in product(*pick):
-    test = [row[:] for row in office]
-    cnt = 0
+def backtracking(depth):
+    if depth == len(cctv_num):
+        sequences.append(sequence[:])
+        return
     
-    for idx, dir in enumerate(case):
-        c, i, j = cctv_list[idx]
-        for s in dir:
-            dx, dy = dxy[s]
-            nx, ny = i + dx, j + dy
-            while 0 <= nx < N and 0 <= ny < M and office[nx][ny] != 6:
-                test[nx][ny] = "#"
+    c = cctv_num[depth]
+    for i in range(dir[c]):
+        sequence.append(i)
+        backtracking(depth + 1)
+        sequence.pop()
+
+sequences = []
+sequence = []
+backtracking(0)
+
+answer = float("inf")
+for seq in sequences:
+    board = [row[:] for row in temp]
+
+    for i in range(len(cctv_position)):
+        x, y = cctv_position[i]
+        c = cctv_num[i]
+        idx = seq[i]
+
+        for dx, dy in dirs[c][idx]:
+            nx, ny = x, y
+            while True:
                 nx += dx
                 ny += dy
-
-    cnt = sum(r.count(0) for r in test)
+                if not (0 <= nx < N and 0 <= ny < M) or board[nx][ny] == 6:
+                    break
+                if board[nx][ny] == 0:
+                    board[nx][ny] = 10
     
-    if cnt < blind_spot:
-        blind_spot = cnt
+    cnt = 0
+    for i in range(N):
+        for j in range(M):
+            if board[i][j] == 0:
+                cnt += 1
 
-print(blind_spot)
+    if cnt < answer:
+        answer = cnt
+
+print(answer)
