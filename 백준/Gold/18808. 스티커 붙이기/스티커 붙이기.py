@@ -16,8 +16,7 @@ for _ in range(K):
     sticker = [tuple(map(int, input().split())) for _ in range(R)]
     rot = 0
 
-    test = False
-    while not test:
+    while True:
         test = False
         R = len(sticker)
         C = len(sticker[0])
@@ -35,16 +34,12 @@ for _ in range(K):
                 for dy in range(C):
                     if sticker[dx][dy] == 1:
                         notebook[i + dx][j + dy] = 1
+            break
         else:
             sticker = list(zip(*sticker[::-1]))
             rot += 1
             if rot > 3:
                 break
-    
-cnt = 0
-for i in range(N):
-    for j in range(M):
-        if notebook[i][j] == 1:
-            cnt += 1
 
+cnt = sum(sum(r) for r in notebook)
 print(cnt)
