@@ -20,11 +20,9 @@ def solution(n, words):
     if wrong:
         if (i + 1) % n == 0:
             x = n
-        else:
-            x = (i + 1) % n
-        if (i + 1) % n == 0:
             y = (i + 1) // n
         else:
+            x = (i + 1) % n
             y = (i + 1) // n + 1
         answer = [x, y]
     else:
