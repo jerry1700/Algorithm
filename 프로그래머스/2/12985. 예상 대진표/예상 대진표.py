@@ -17,7 +17,7 @@ def solution(n,a,b):
         
     else:
         num = 1
-        while not (a % 2 == 0 and b % 2 == 1) or a != b + 1:
+        while a % 2 != 0 or b % 2 != 1 or a != b + 1:
             if a % 2 == 0:
                 a = a // 2
             else:
