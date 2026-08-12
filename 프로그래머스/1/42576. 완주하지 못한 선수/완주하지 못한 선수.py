@@ -1,12 +1,12 @@
 def solution(participant, completion):
     people = {}
-    for p in participant:
-        if p in people:
-            people[p] += 1
-        else:
-            people[p] = 1
-            
-    for c in completion:
-        people[c] -= 1
+    start = 0
         
-    return next((k for k, v in people.items() if v == 1))
+    for p in participant:
+        people[hash(p)] = p
+        start += hash(p)
+    
+    for c in completion:
+        start -= hash(c)
+        
+    return people[start]
