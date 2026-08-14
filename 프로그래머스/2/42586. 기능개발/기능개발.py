@@ -10,18 +10,19 @@ def solution(progresses, speeds):
         else:
             days.append(re // speeds[i] + 1)
 
-    idx = 0
-    while idx < cnt:
+    next = 0
+    for i in range(cnt):
+        if i < next:
+            continue
+        
         num = 1
-
-        for nidx in range(idx + 1, cnt):
-            if days[idx] >= days[nidx]:
+        for j in range(i + 1, cnt):
+            if days[i] >= days[j]:
                 num += 1
             else:
                 break
-                
+        
         answer.append(num)
-
-        idx += num
+        next += num
     
     return answer
