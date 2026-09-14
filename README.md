@@ -17,11 +17,11 @@
 <!---LeetCode Topics Start-->
 # LeetCode Topics
 ## Two Pointers
-| Problem Name | Difficulty |
-| ------- | ------- |
+|  |
+| ------- |
 | [1768-merge-strings-alternately](https://github.com/jerry1700/Algorithm/tree/master/1768-merge-strings-alternately) |
 ## String
-| Problem Name | Difficulty |
-| ------- | ------- |
+|  |
+| ------- |
 | [1768-merge-strings-alternately](https://github.com/jerry1700/Algorithm/tree/master/1768-merge-strings-alternately) |
 <!---LeetCode Topics End-->
