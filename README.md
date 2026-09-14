@@ -13,3 +13,15 @@
 ### 📅 History
 * **시작일**: 2026년 1월 20일 (첫 문제 풀이 시작)
 * **기록**: [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub)를 통해 자동으로 관리되고 있습니다.
+
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## Two Pointers
+|  |
+| ------- |
+| [1768-merge-strings-alternately](https://github.com/jerry1700/Algorithm/tree/master/1768-merge-strings-alternately) |
+## String
+|  |
+| ------- |
+| [1768-merge-strings-alternately](https://github.com/jerry1700/Algorithm/tree/master/1768-merge-strings-alternately) |
+<!---LeetCode Topics End-->
