@@ -37,4 +37,8 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [1071-greatest-common-divisor-of-strings](https://github.com/jerry1700/Algorithm/tree/master/1071-greatest-common-divisor-of-strings) |
+## Array
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [1431-kids-with-the-greatest-number-of-candies](https://github.com/jerry1700/Algorithm/tree/main/LeetCode/Easy/1431-kids-with-the-greatest-number-of-candies/) | Easy |
 <!---LeetCode Topics End-->
