@@ -1,7 +1,7 @@
 from itertools import combinations_with_replacement
 
 def solution(n, info):
-    scores = list(range(11))
+    scores = list(range(10, -1, -1))
     num = 0
     answer = [-1]
     
@@ -22,12 +22,5 @@ def solution(n, info):
         if lion - apeach > num:
             num = lion - apeach
             answer = result
-        elif lion - apeach == num:
-            for x in range(10, -1, -1):
-                if len(answer) > 1:
-                    if result[x] != answer[x]:
-                        if result[x] > answer[x]:
-                            answer = result
-                        break
     
     return answer
