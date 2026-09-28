@@ -7,7 +7,7 @@ def solution(users, emoticons):
     
     for dis in product(discounts, repeat=cnt):
         result = [0, 0]
-        emo = [(d, emoticons[idx] * (100 - d) / 100) for idx, d in enumerate(dis)]
+        emo = [(d, emoticons[idx] * (100 - d) // 100) for idx, d in enumerate(dis)]
         
         for x, y in users:
             num = 0
@@ -20,9 +20,7 @@ def solution(users, emoticons):
             else:
                 result[1] += num
                 
-        if result[0] > answer[0]:
+        if result[0] > answer[0] or (result[0] == answer[0] and result[1] > answer[1]):
             answer = result
-        elif result[0] == answer[0] and result[1] > answer[1]:
-                answer[1] = result[1]
     
     return answer
