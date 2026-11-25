@@ -1,11 +1,12 @@
 N = int(input())
-card = list(map(int, input().split()))
+num_list = list(map(int, input().split()))
 M = int(input())
-answer = list(map(int, input().split()))
+answer_list = list(map(int, input().split()))
 
-card_map = [0] * 20000001
-for i in card:
-    card_map[i] += 1
+group = [0] * 20000001
 
-for i in answer:
-    print(card_map[i], end = " ")
+for num in num_list:
+    group[num - 10000000] += 1
+
+for p in answer_list:
+    print(group[p - 10000000], end = " ")
